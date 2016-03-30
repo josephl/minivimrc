@@ -8,7 +8,9 @@ set t_Co=256
 
 let mapleader = ' '
 nmap <leader>s Oimport pdb; pdb.set_trace()<ESC>
+nmap <leader>S Oimport nose; nose.tools.set_trace()<ESC>
 nmap <leader>i Oimport ipdb; ipdb.set_trace()<ESC>
+nmap <leader>I Oimport ipdb; ipdb.set_trace()<ESC>
 nmap <leader>d Odebugger;<ESC>
 nmap <leader>f :set fdm=indent<CR>
 
@@ -16,6 +18,10 @@ nnoremap gp :set paste<CR>
 nnoremap gP :set nopaste<CR>
 nnoremap gn :set number<CR>
 nnoremap gN :set nonumber<CR>
+
+set nocompatible
+filetype off
+filetype plugin indent on
 
 " .vimrc
 " See: http://vimdoc.sourceforge.net/htmldoc/options.html for details
@@ -45,7 +51,7 @@ set ignorecase
 set smartcase
 set backspace=2
 set autoindent
-set formatoptions=c,q ",r,t
+set formatoptions=c,q,r ",t
 " This is a sequence of letters which describes how
 " automatic formatting is to be done.
 "
@@ -64,7 +70,9 @@ set formatoptions=c,q ",r,t
 
 set ruler
 
-" Solarized
+"ignore indentation error in vim-flake8
+"let g:flake8_ignore="W0311"
+
 syntax enable
 set background=dark
 colorscheme elflord
